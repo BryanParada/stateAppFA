@@ -12,7 +12,27 @@ class Page2Page extends StatelessWidget {
         title: Text('Page2')
       ),
       body: Center(
-        child: Text('Page2Page'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            MaterialButton(
+              child: Text('Asign User', style: TextStyle(color: Colors.white)),
+              color: Colors.blue,
+              onPressed: (){},
+            ),
+
+            MaterialButton(
+              child: Text('Change Age', style: TextStyle(color: Colors.white)),
+              color: Colors.blue,
+              onPressed: (){},
+            ),
+            MaterialButton(
+              child: Text('Add Profession', style: TextStyle(color: Colors.white)),
+              color: Colors.blue,
+              onPressed: (){},
+            )
+          ],
+        ),
      ),
    );
   }
