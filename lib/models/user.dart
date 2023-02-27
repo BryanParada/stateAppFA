@@ -9,6 +9,6 @@ class User{
   User({
     required this.name, 
     required this.age, 
-    required this.professions 
+     this.professions = const []
     });
 }
