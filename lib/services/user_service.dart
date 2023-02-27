@@ -6,7 +6,7 @@ class _UserService {
 
   User? _user;
 
-  StreamController<User> _userStreamController = new StreamController<User>();
+  StreamController<User> _userStreamController = new StreamController<User>.broadcast();
 
   User? get user => this._user;
   bool get existsUser => ( this._user != null) ? true : false;
@@ -23,6 +23,10 @@ class _UserService {
     this._user?.age = age;
     this._userStreamController.add(this._user!);
 
+  }
+
+  dispose(){
+    this._userStreamController?.close();
   }
 
 
