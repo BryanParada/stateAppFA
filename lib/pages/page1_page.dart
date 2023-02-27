@@ -11,9 +11,14 @@ class Page1Page extends StatelessWidget {
       appBar: AppBar(
         title: Text('Page1')
       ),
-      body:  userService.existsUser
-      ? InfoUser(user: userService.user )
-      : Center(child: Text('There is no info for the user')),
+      body: StreamBuilder(
+        stream: userService.userStream, 
+        builder: (BuildContext context, AsyncSnapshot<User> snapshot) {
+          return snapshot.hasData
+          ? InfoUser( user: snapshot.data ) //user: userService.user
+          : Center(child: Text('There is no info for the user'));
+        },
+      ), 
      floatingActionButton: FloatingActionButton(
       child: Icon( Icons.accessibility_new),
       onPressed: () => Navigator.pushNamed(context, 'page2'),
