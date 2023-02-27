@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 
 import 'package:flutter/material.dart';
+import 'package:state_app/models/user.dart';
+import 'package:state_app/services/user_service.dart';
 
 
 class Page2Page extends StatelessWidget {
@@ -18,13 +20,21 @@ class Page2Page extends StatelessWidget {
             MaterialButton(
               child: Text('Asign User', style: TextStyle(color: Colors.white)),
               color: Colors.blue,
-              onPressed: (){},
+              onPressed: (){
+                final newUser = new User(
+                  name: 'bry', 
+                  age: 30 );
+
+                userService.loadUser(newUser);
+              },
             ),
 
             MaterialButton(
               child: Text('Change Age', style: TextStyle(color: Colors.white)),
               color: Colors.blue,
-              onPressed: (){},
+              onPressed: (){
+                userService.changeAge(20);
+              },
             ),
             MaterialButton(
               child: Text('Add Profession', style: TextStyle(color: Colors.white)),

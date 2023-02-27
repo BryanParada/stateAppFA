@@ -4,11 +4,12 @@ class User{
 
   String name;
   int age;
-  List<String> professions;
+  List<String>? professions;
 
   User({
     required this.name, 
     required this.age, 
-    required this.professions 
-    });
+     this.professions // = const []
+    });// :assert(name != null)
+    
 }
