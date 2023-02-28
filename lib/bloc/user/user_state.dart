@@ -6,5 +6,11 @@ abstract class UserState{}
 class UserInitial extends UserState{
 
   final existsUser = false;
+
+  // @override
+  // String toString() { 
+  //   //para omitir usar instance of UserInitial
+  //   return 'UserInitial: existsUser: false';
+  // }
   
 }
