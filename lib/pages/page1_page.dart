@@ -13,7 +13,15 @@ class Page1Page extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Page1')
+        title: Text('Page1'),
+        actions: [
+          IconButton(
+            onPressed: (){
+              //remove user
+              userService.removeUser();
+            },
+            icon: Icon(Icons.exit_to_app_rounded))
+        ],
       ),
       body: userService.existsUser
       ? InfoUser( user: userService.user! )
