@@ -58,9 +58,11 @@ class InfoUser extends StatelessWidget {
           Text('Professions', style:TextStyle( fontSize: 18, fontWeight: FontWeight.bold)),
           Divider(),
 
-          ListTile( title: Text('Profession 1')),
-          ListTile( title: Text('Profession 2')),
-          ListTile( title: Text('Profession 3')),
+          ...user.professions.map(
+            (profession) => ListTile( title: Text(profession))
+            ).toList()
+
+          //ListTile( title: Text('Profession 1')), 
 
         ],
       )

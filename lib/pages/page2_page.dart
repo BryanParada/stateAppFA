@@ -28,7 +28,7 @@ class Page2Page extends StatelessWidget {
               color: Colors.blue,
               onPressed: (){
                 
-                final newUser = new User(name: 'Bry', age: 30);
+                final newUser = new User(name: 'Bry', age: 30, professions: ['Fullstack developer', 'Designer']);
                 userService.user = newUser;
 
               },
@@ -44,7 +44,9 @@ class Page2Page extends StatelessWidget {
             MaterialButton(
               child: Text('Add Profession', style: TextStyle(color: Colors.white)),
               color: Colors.blue,
-              onPressed: (){},
+              onPressed: (){
+                userService.addProfession();
+              },
             )
           ],
         ),

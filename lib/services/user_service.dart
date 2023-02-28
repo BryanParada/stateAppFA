@@ -24,6 +24,11 @@ class UserService with ChangeNotifier {
     this._user = null;
     notifyListeners();
   }
+
+  void addProfession(){
+    this._user?.professions.add('Profession ${ this._user!.professions.length +1}');
+    notifyListeners();
+  }
  
 
 
