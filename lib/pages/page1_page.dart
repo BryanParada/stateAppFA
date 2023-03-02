@@ -10,7 +10,12 @@ class Page1Page extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Page1')
+        title: Text('Page1'),
+        actions: [
+          IconButton(onPressed: (){
+            context.read<UserCubit>().deleteUser();
+          }, icon: Icon(Icons.exit_to_app))
+        ],
       ),
       body: BodyScaffold(),
      floatingActionButton: FloatingActionButton(
