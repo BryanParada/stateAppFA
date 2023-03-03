@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:state_app/bloc/user/user_bloc.dart';
 
 
 class Page1Page extends StatelessWidget {
@@ -9,7 +11,18 @@ class Page1Page extends StatelessWidget {
       appBar: AppBar(
         title: Text('Page1')
       ),
-      body: InfoUser(),
+      body: BlocBuilder<UserBloc, UserState>(
+        builder: (_, state) {
+
+          return state.existUser
+          ? InfoUser()
+          : const Center(
+            child: Text('There is no user selected')
+          );
+
+          
+        },
+      ),
      floatingActionButton: FloatingActionButton(
       child: Icon( Icons.accessibility_new),
       onPressed: () => Navigator.pushNamed(context, 'page2'),
