@@ -10,6 +10,9 @@ class Page2Page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+ final userBloc = BlocProvider.of<UserBloc>(context, listen: false);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Page2')
@@ -29,15 +32,17 @@ class Page2Page extends StatelessWidget {
                   professions: ['FullStack Developer']
                 );
 
-                BlocProvider.of<UserBloc>(context, listen: false)
-                .add(ActivateUser(newUser)); //.add para disparar un evento
+                //BlocProvider.of<UserBloc>(context, listen: false)
+                userBloc.add(ActivateUser(newUser)); //.add para disparar un evento
               },
             ),
 
             MaterialButton(
               child: Text('Change Age', style: TextStyle(color: Colors.white)),
               color: Colors.blue,
-              onPressed: (){},
+              onPressed: (){
+                userBloc.add(ChangeUserAge(25)); //.add para disparar un evento
+              },
             ),
             MaterialButton(
               child: Text('Add Profession', style: TextStyle(color: Colors.white)),

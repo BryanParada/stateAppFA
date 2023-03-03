@@ -22,6 +22,14 @@ class UserBloc extends Bloc<UserEvent, UserState>{ //<us, us>clases abstractas d
     //ó
     // on<ActivateUser>( (event, emit) => emit( UserSetState( event.newUser ) ));
 
+    on<ChangeUserAge>((event, emit) {
+    print('ChangeUserAge Called'); 
+      if ( !state.existUser) return; //tenemos acceso a state gracias a Bloc(linea13)
+      print('will emit new state!');
+      // state.user!.age = event.age; //mala practica - posible warning ya que se esta mutando el estado, se debe generar SIEMPRE un nuevo estado
+      emit( UserSetState(state.user!.copyWith( age: event.age)));
+    });
+
   } 
 
 
