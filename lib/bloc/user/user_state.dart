@@ -1,3 +1,4 @@
+//USER_STATE: estado como luce la data, como mantengo la informacion en el state
 part of 'user_bloc.dart';
 
 @immutable
@@ -12,3 +13,7 @@ abstract class UserState { //abstract no podremos crear instancias de esta clase
     });
 }
 
+class UserInitialState extends UserState{
+  const UserInitialState(): super(existUser: false, user: null);
+
+}

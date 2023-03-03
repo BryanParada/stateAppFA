@@ -1,4 +1,4 @@
-
+//USER_EVENT: los eventos que voy a disparar (al pulsar un boton), me tiene que proveer el usuario y pasara por user_bloc.dart
 
 part of 'user_bloc.dart';
 
