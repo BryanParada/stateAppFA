@@ -35,7 +35,9 @@ class Page2Page extends StatelessWidget {
             MaterialButton(
               child: Text('Change Age', style: TextStyle(color: Colors.white)),
               color: Colors.blue,
-              onPressed: (){},
+              onPressed: (){
+                userCtrl.changeAge(25);
+              },
             ),
             MaterialButton(
               child: Text('Add Profession', style: TextStyle(color: Colors.white)),

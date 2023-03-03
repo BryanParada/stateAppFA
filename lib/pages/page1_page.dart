@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:state_app/controllers/user_controller.dart';
+import 'package:state_app/models/user.dart';
 import 'package:state_app/pages/page2_page.dart';
 
 
 class Page1Page extends StatelessWidget {
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class Page1Page extends StatelessWidget {
         title: Text('Page1')
       ),
       body: Obx( () =>  userCtrl.existUser.value
-            ? InfoUser()
+            ? InfoUser( user: userCtrl.user.value)
             : NoInfo()
              ),
      floatingActionButton: FloatingActionButton(
@@ -45,6 +47,12 @@ class NoInfo extends StatelessWidget {
 }
 
 class InfoUser extends StatelessWidget { 
+
+  final User user;
+
+  const InfoUser({super.key, required this.user});
+
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -57,8 +65,8 @@ class InfoUser extends StatelessWidget {
           Text('General', style:TextStyle( fontSize: 18, fontWeight: FontWeight.bold)),
           Divider(),
 
-          ListTile(title: Text('Name: '),),
-          ListTile(title: Text('Age: '),),
+          ListTile(title: Text('Name: ${this.user.name}'),),
+          ListTile(title: Text('Age: ${this.user.age}'),),
 
           Text('Professions', style:TextStyle( fontSize: 18, fontWeight: FontWeight.bold)),
           Divider(),

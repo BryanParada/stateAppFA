@@ -13,4 +13,10 @@ class UserController extends GetxController{
     this.user.value = pUser;
   }
 
+  void changeAge( int pAge){
+    this.user.update((val) {
+      val!.age = pAge;
+    });
+  }
+
 }
