@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:state_app/bloc/user/user_bloc.dart';
+import 'package:state_app/models/user.dart';
 
 
 class Page1Page extends StatelessWidget {
@@ -15,7 +16,7 @@ class Page1Page extends StatelessWidget {
         builder: (_, state) {
 
           return state.existUser
-          ? InfoUser()
+          ? InfoUser(user: state.user!)
           : const Center(
             child: Text('There is no user selected')
           );
@@ -32,6 +33,11 @@ class Page1Page extends StatelessWidget {
 }
 
 class InfoUser extends StatelessWidget { 
+
+  final User user;
+
+  const InfoUser({super.key, required this.user});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,18 +47,20 @@ class InfoUser extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('General', style:TextStyle( fontSize: 18, fontWeight: FontWeight.bold)),
-          Divider(),
+          const Text('General', style:TextStyle( fontSize: 18, fontWeight: FontWeight.bold)),
+          const Divider(),
 
-          ListTile(title: Text('Name: '),),
-          ListTile(title: Text('Age: '),),
+          ListTile(title: Text('Name: ${user.name}'),),
+          ListTile(title: Text('Age: ${user.age}'),),
 
-          Text('Professions', style:TextStyle( fontSize: 18, fontWeight: FontWeight.bold)),
-          Divider(),
+          const Text('Professions', style:TextStyle( fontSize: 18, fontWeight: FontWeight.bold)),
+          const Divider(),
 
-          ListTile( title: Text('Profession 1')),
-          ListTile( title: Text('Profession 2')),
-          ListTile( title: Text('Profession 3')),
+          ...user.professions.map(
+             (prof) => ListTile( title: Text(prof))
+             ).toList()
+
+
 
         ],
       )
