@@ -30,6 +30,12 @@ class UserBloc extends Bloc<UserEvent, UserState>{ //<us, us>clases abstractas d
       emit( UserSetState(state.user!.copyWith( age: event.age)));
     });
 
+   on<AddProfession>( (event, emit){
+      if( !state.existUser )return;
+      final professions = [...state.user!.professions, event.profession];
+      emit( UserSetState(state.user!.copyWith(professions: professions)));
+    } );
+
   } 
 
 

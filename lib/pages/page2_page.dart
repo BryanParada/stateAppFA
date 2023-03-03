@@ -47,7 +47,10 @@ class Page2Page extends StatelessWidget {
             MaterialButton(
               child: Text('Add Profession', style: TextStyle(color: Colors.white)),
               color: Colors.blue,
-              onPressed: (){},
+              onPressed: (){
+
+                userBloc.add(AddProfession(' new profession'));
+              },
             )
           ],
         ),
