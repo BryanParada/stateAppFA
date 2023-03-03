@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:state_app/controllers/user_controller.dart';
 import 'package:state_app/pages/page2_page.dart';
 
 
@@ -7,11 +8,17 @@ class Page1Page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final userCtrl = Get.put(UserController());
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Page1')
       ),
-      body: InfoUser(),
+      body: Obx( () =>  userCtrl.existUser.value
+            ? InfoUser()
+            : NoInfo()
+             ),
      floatingActionButton: FloatingActionButton(
       child: Icon( Icons.accessibility_new),
       // onPressed: () => Navigator.pushNamed(context, 'page2'),
@@ -22,6 +29,18 @@ class Page1Page extends StatelessWidget {
       }) //<- nombre de la ruta en main
      ),
    );
+  }
+}
+
+class NoInfo extends StatelessWidget { 
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center( 
+        child: Text('There is no user selected')
+      )
+    );
   }
 }
 

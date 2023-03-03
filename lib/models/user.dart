@@ -7,8 +7,8 @@ class User{
   List<String> professions;
 
   User({
-    required this.name, 
-    required this.age, 
-    required this.professions 
+     this.name = '', 
+     this.age = 0, 
+     this.professions = const []
     });
 }
