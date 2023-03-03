@@ -15,8 +15,12 @@ class UserBloc extends Bloc<UserEvent, UserState>{ //<us, us>clases abstractas d
 
     //       usar emit para cambiar estado
     on<ActivateUser>( (event, emit){
-
+      print('ActivateUser called');
+      emit(UserSetState( event.newUser ));
     } );
+
+    //ó
+    // on<ActivateUser>( (event, emit) => emit( UserSetState( event.newUser ) ));
 
   } 
 
