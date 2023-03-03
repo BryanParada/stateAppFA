@@ -10,7 +10,15 @@ class Page1Page extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Page1')
+        title: Text('Page1'),
+        actions: [
+          IconButton(
+            onPressed: (){
+              BlocProvider.of<UserBloc>(context, listen: false)
+              .add(DeleteUser());
+            }, 
+          icon: Icon(Icons.delete_outline))
+        ]
       ),
       body: BlocBuilder<UserBloc, UserState>(
         builder: (_, state) {
