@@ -42,7 +42,9 @@ class Page2Page extends StatelessWidget {
             MaterialButton(
               child: Text('Add Profession', style: TextStyle(color: Colors.white)),
               color: Colors.blue,
-              onPressed: (){},
+              onPressed: (){
+                userCtrl.addProfession('Profession #${userCtrl.professionsCount +1 }'); //userCtrl.user.value.professions.length +1
+              },
             )
           ],
         ),
