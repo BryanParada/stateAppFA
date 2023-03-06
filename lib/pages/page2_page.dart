@@ -29,6 +29,15 @@ class Page2Page extends StatelessWidget {
               color: Colors.blue,
               onPressed: (){
                 userCtrl.loadUser(User(name: 'bry', age: 35));
+                Get.snackbar('User assigned',
+                 'User Bry assigned',
+                 backgroundColor:   Colors.white,
+                 boxShadows: [
+                  BoxShadow(
+                    color: Colors.black38,
+                    blurRadius: 10
+                  )
+                 ]);
               },
             ),
 
@@ -45,7 +54,18 @@ class Page2Page extends StatelessWidget {
               onPressed: (){
                 userCtrl.addProfession('Profession #${userCtrl.professionsCount +1 }'); //userCtrl.user.value.professions.length +1
               },
-            )
+              
+            ),
+
+              MaterialButton(
+              child: Text('Change theme', style: TextStyle(color: Colors.white)),
+              color: Colors.blue,
+              onPressed: (){
+                Get.changeTheme(Get.isDarkMode ? ThemeData.light() : ThemeData.dark());
+              },
+              
+            ),
+                          
           ],
         ),
      ),
